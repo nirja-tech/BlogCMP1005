@@ -1,23 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using BlogCMP1005.Data;
 using BlogCMP1005.Models;
+
 
 namespace BlogCMP1005.Pages
 {
     public class CreateModel : PageModel
     {
         private readonly BlogCMP1005.Data.ApplicationDbContext _context;
+       
 
         public CreateModel(BlogCMP1005.Data.ApplicationDbContext context)
         {
             _context = context;
         }
+
+      
 
         public IActionResult OnGet()
         {
@@ -30,6 +30,7 @@ namespace BlogCMP1005.Pages
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
+           
             if (!ModelState.IsValid)
             {
                 return Page();
@@ -37,6 +38,8 @@ namespace BlogCMP1005.Pages
 
             _context.Blog.Add(Blog);
             await _context.SaveChangesAsync();
+
+          
 
             return RedirectToPage("./Index");
         }

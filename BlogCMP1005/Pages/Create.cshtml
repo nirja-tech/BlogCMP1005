@@ -5,13 +5,13 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1 style="text-align:center; text-decoration-color:Green">Create Blog</h1>
 
-<h4>Blog</h4>
+
 <hr />
-<div class="row">
+<div class="row"  style="align-content:center">
     <div class="col-md-4">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data" >
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Blog.UserName" class="control-label"></label>
@@ -25,12 +25,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Blog.Content" class="control-label"></label>
-                <input asp-for="Blog.Content" class="form-control" />
+                <input asp-for="Blog.Content" style="width:700px;height:700px" class="form-control" />
                 <span asp-validation-for="Blog.Content" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Blog.Images" class="control-label"></label>
-                <input asp-for="Blog.Images" class="form-control" />
+                <input type="file" asp-for="Blog.Images" class="form-control" />
                 <span asp-validation-for="Blog.Images" class="text-danger"></span>
             </div>
             <div class="form-group">
