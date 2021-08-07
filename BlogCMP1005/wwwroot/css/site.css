@@ -36,10 +36,10 @@ html {
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+  border-top: 3px solid #e5e5e5;
 }
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 3px solid #e5e5e5;
 }
 
 .box-shadow {
@@ -56,14 +56,17 @@ button.accept-policy {
 html {
   position: relative;
   min-height: 100%;
+ 
 }
 
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+ 
 }
 .footer {
   position: absolute;
+ 
   bottom: 0;
   width: 100%;
   white-space: nowrap;
