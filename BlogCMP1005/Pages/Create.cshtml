@@ -5,13 +5,17 @@
     ViewData["Title"] = "Create";
 }
 
+
+
+<link rel="stylesheet" href="trumbowyg/dist/ui/trumbowyg.min.css">
+
 <h1 style="text-align:center; background-color:blanchedalmond">Create Blog</h1>
 
 
 <hr />
-<div class="row"  style="align-content: center; background-color: darkgoldenrod">
-    <div class="col-md-4" style="align-content:center" >
-        <form method="post" enctype="multipart/form-data" >
+<div class="row" style="align-content: center; background-color: darkgoldenrod">
+    <div class="col-md-4" style="align-content:center">
+        <form method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Blog.UserName" class="control-label"></label>
@@ -25,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Blog.Content" class="control-label"></label>
-                <input asp-for="Blog.Content" style="width:700px;height:700px" class="form-control" />
+                <textarea id="ed" asp-for="Blog.Content" class="form-control"></textarea>
                 <span asp-validation-for="Blog.Content" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -50,5 +54,14 @@
 </div>
 
 @section Scripts {
+    <script src="~/lib/Trumbowyg-main/Trumbowyg-main/dist/trumbowyg.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="trumbowyg/dist/trumbowyg.min.js"></script>
+
+    <script>
+
+        $('#ed').trumbowyg();
+       
+    </script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
