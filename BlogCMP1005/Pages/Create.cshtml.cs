@@ -38,14 +38,12 @@ namespace BlogCMP1005.Pages
                 if (formFile.Length > 0)
                 {
                     var ImageName = Path.GetFileName(formFile.FileName);
-                    var ImageExtension = Path.GetExtension(ImageName);
-                    //var UserName = string.Concat(System.Convert.ToString(System.Guid.NewGuid()), ImageExtension);
+                   // var ImageExtension = Path.GetExtension(ImageName);
+                  
                     var objFiles = new Blog()
                     {
 
                         Images = ImageName
-
-
 
                     };
 
