@@ -6,16 +6,13 @@
 }
 
 
-
-<link rel="stylesheet" href="trumbowyg/dist/ui/trumbowyg.min.css">
-
 <h1 style="text-align:center; background-color:blanchedalmond">Create Blog</h1>
 
 
 <hr />
 <div class="row" style="align-content: center; background-color: darkgoldenrod">
     <div class="col-md-4" style="align-content:center">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" id="test" >
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Blog.UserName" class="control-label"></label>
@@ -24,12 +21,16 @@
             </div>
             <div class="form-group">
                 <label asp-for="Blog.Title" class="control-label"></label>
-                <input asp-for="Blog.Title" class="form-control" />
+                <input asp-for="Blog.Title" class="form-control" id="testCBV" />
                 <span asp-validation-for="Blog.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Blog.Content" class="control-label"></label>
-                <textarea id="ed" asp-for="Blog.Content" class="form-control"></textarea>
+                <input asp-for="Blog.Content" id="textInput">
+                <div id="editor" asp-for="Blog.Content">
+
+                </div>
+
                 <span asp-validation-for="Blog.Content" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -37,13 +38,14 @@
                 <input type="file" asp-for="Blog.Images" name="formFile" class="form-control" />
                 <span asp-validation-for="Blog.Images" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="Blog.Date" class="control-label"></label>
                 <input asp-for="Blog.Date" class="form-control" />
                 <span asp-validation-for="Blog.Date" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" id="save" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -54,13 +56,31 @@
 </div>
 
 @section Scripts {
-    <script src="~/lib/Trumbowyg-main/Trumbowyg-main/dist/trumbowyg.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="trumbowyg/dist/trumbowyg.min.js"></script>
-
+    
     <script>
 
-        $('#ed').trumbowyg();
+
+
+
+        $('#editor').trumbowyg();
+        $('#test').on('submit', function (e) {
+            e.preventDefault();
+            console.log("clicked")
+            // do your things ...
+            const k = $('#editor').trumbowyg('html')
+            
+            document.getElementById("textInput").value = k
+            const p = document.getElementById("textInput").value
+            console.log(p)
+            // and when you done:
+            
+            e.currentTarget.submit();
+        });
+
+        
+
+          
+
        
     </script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

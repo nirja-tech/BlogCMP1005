@@ -24,29 +24,35 @@ namespace BlogCMP1005.Pages
             return Page();
         }
 
-        
 
         [BindProperty]
         public Blog Blog { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync(IFormFile formFile)
-        {
+        {    
+
+          
             if (formFile != null)
             {
 
                 if (formFile.Length > 0)
                 {
                     var ImageName = Path.GetFileName(formFile.FileName);
-                   // var ImageExtension = Path.GetExtension(ImageName);
-                  
+                    // var ImageExtension = Path.GetExtension(ImageName);
+
                     var objFiles = new Blog()
                     {
 
+                        Id = Blog.Id,
+                        UserName = Blog.UserName,
+                        Title = Blog.Title,
+                        Content = Blog.Content,
                         Images = ImageName
 
                     };
 
+                    
                     using (var target = new MemoryStream())
                     {
 
@@ -56,7 +62,7 @@ namespace BlogCMP1005.Pages
 
 
                     }
-
+                   
                     _context.Blog.Add(objFiles);
 
 
@@ -72,7 +78,6 @@ namespace BlogCMP1005.Pages
                 return Page();
             }
 
-            _context.Blog.Add(Blog);
             await _context.SaveChangesAsync();
 
           
