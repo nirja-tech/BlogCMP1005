@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogUnitTestProject", "Blog
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogAPI", "BlogAPI\BlogAPI.csproj", "{364F6788-3ED7-4513-815F-B5EFA5F2DA76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogCMP1005-Integration-Test", "BlogCMP1005-Integration-Test\BlogCMP1005-Integration-Test.csproj", "{1B2DDA74-394D-41AF-BF8E-79341B1893DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{364F6788-3ED7-4513-815F-B5EFA5F2DA76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{364F6788-3ED7-4513-815F-B5EFA5F2DA76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{364F6788-3ED7-4513-815F-B5EFA5F2DA76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B2DDA74-394D-41AF-BF8E-79341B1893DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B2DDA74-394D-41AF-BF8E-79341B1893DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B2DDA74-394D-41AF-BF8E-79341B1893DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B2DDA74-394D-41AF-BF8E-79341B1893DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
