@@ -100,6 +100,24 @@ namespace BlogAPI.Controllers
             return NoContent();
         }
 
+        [HttpGet]
+        public async Task<ActionResult<BlogApi>> AddNewBlog(String title, String likes, String username, String content, String images, DateTime datew)
+        {
+            Response.Headers.Add("New-Data", "*");
+            var NewUser = new BlogApi();
+            NewUser.Title = title;
+            NewUser.Images = images;
+            NewUser.Likes = likes;
+            NewUser.UserName = username;
+            NewUser.Content = content;
+            NewUser.Date = datew;
+
+
+            _context.BlogApi.Remove(NewUser);
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
+
         private bool BlogApiExists(int id)
         {
             return _context.BlogApi.Any(e => e.Id == id);

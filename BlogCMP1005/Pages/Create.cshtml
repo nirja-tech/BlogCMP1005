@@ -26,7 +26,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Blog.Content" class="control-label"></label>
-                <input asp-for="Blog.Content" id="textInput">
+                <input asp-for="Blog.Content" id="textInput" type ="hidden">
                 <div id="editor" asp-for="Blog.Content">
 
                 </div>
@@ -59,8 +59,23 @@
     
     <script>
 
+        function AddUser() {
+            fetch("https://localhost:44324/BlogApi/AddNewBlog?title=1&username=1&images=1&content=1&likes=1&date=1",
+                {
+                    mode: 'no-cors',
+                
+                }) 
+        .then((response) => response.text()).catch((error) => {
+           
+        })
+            .then((body) =>
+        {
+            consol.log(body)
+        });
 
-
+        getData()
+        }
+       
 
         $('#editor').trumbowyg();
         $('#test').on('submit', function (e) {
