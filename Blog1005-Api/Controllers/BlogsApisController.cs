@@ -10,6 +10,8 @@ using Blog1005_Api.Model;
 
 namespace Blog1005_Api.Controllers
 {
+    [ApiController]
+    [Route("Api/[Controller]/[action]")]
     public class BlogsApisController : Controller
     {
         private readonly Blog1005_ApiContext _context;
@@ -20,28 +22,32 @@ namespace Blog1005_Api.Controllers
         }
        
         // GET: BlogsApis
-        public async Task<IActionResult> Index()
+        /*public async Task<IActionResult> Index()
         {
             return View(await _context.BlogsApi.ToListAsync());
-        }
+        }*/
 
         // GET: BlogsApis/Details/5
-        public async Task<IActionResult> Details(int? id)
+
+        
+        [HttpGet]
+        public async Task<BlogsApi> Details(int? id)
         {
             if (id == null)
             {
-                return NotFound();
+                //return NotFound();
             }
 
             var blogsApi = await _context.BlogsApi
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (blogsApi == null)
             {
-                return NotFound();
+               // return NotFound();
             }
 
-            return View(blogsApi);
+            return (blogsApi);
         }
+       
 
 
         [HttpGet]
@@ -61,48 +67,47 @@ namespace Blog1005_Api.Controllers
             await _context.SaveChangesAsync();
             return NoContent();
         }
-        // GET: BlogsApis/Create
+
+       /* // GET: BlogsApis/Create
         public IActionResult Create()
         {
             return View();
         }
-
-        // POST: BlogsApis/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+      */
+        
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserName,Title,Content,Images,Date,Likes")] BlogsApi blogsApi)
+       // [ValidateAntiForgeryToken]
+        public async Task<BlogsApi> Create([Bind("Id,UserName,Title,Content,Images,Date,Likes")] BlogsApi blogsApi)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(blogsApi);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+               // return RedirectToAction(nameof(Index));
             }
-            return View(blogsApi);
+            return (blogsApi);
         }
 
-        // GET: BlogsApis/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+     /*   // GET: BlogsApis/Edit/5
+        public async Task<BlogsApi> Edit(int? id)
         {
             if (id == null)
             {
-                return NotFound();
+               return NotFound()
             }
 
             var blogsApi = await _context.BlogsApi.FindAsync(id);
             if (blogsApi == null)
             {
-                return NotFound();
+                //return NotFound();
             }
-            return View(blogsApi);
+           // return View(blogsApi);
         }
+     */
+       
 
-        // POST: BlogsApis/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        
+     /*   [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,UserName,Title,Content,Images,Date,Likes")] BlogsApi blogsApi)
         {
@@ -133,7 +138,8 @@ namespace Blog1005_Api.Controllers
             }
             return View(blogsApi);
         }
-
+     */
+     /*
         // GET: BlogsApis/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -162,10 +168,13 @@ namespace Blog1005_Api.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+       
 
         private bool BlogsApiExists(int id)
         {
             return _context.BlogsApi.Any(e => e.Id == id);
         }
+     */
+
     }
 }

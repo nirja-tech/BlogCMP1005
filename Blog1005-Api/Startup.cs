@@ -33,6 +33,7 @@ namespace Blog1005_Api
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Blog1005_Api", Version = "v1" });
+                c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
             });
 
             services.AddDbContext<Blog1005_ApiContext>(options =>
@@ -46,7 +47,7 @@ namespace Blog1005_Api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Blog1005_Api v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("./v1/swagger.json", "Blog1005_Api v1"));
             }
 
             app.UseHttpsRedirection();

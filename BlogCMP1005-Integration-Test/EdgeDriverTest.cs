@@ -1,6 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Edge;
+using System;
+using System.Threading.Tasks;
 
 namespace BlogCMP1005_Integration_Test
 {
@@ -31,6 +33,9 @@ namespace BlogCMP1005_Integration_Test
             _driver.Url = "https://www.bing.com";
             Assert.AreEqual("Bing", _driver.Title);
         }
+
+       
+      
 
         [TestCleanup]
         public void EdgeDriverCleanup()
