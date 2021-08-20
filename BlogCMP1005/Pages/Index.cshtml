@@ -9,7 +9,7 @@
 <img src="~/content/static/blogimg.jpg" width="700"; height="300" />
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" id= "checkLink">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -51,9 +51,9 @@
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.Id" id="edit">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id" id="details">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id" id="delete">Delete</a>
             </td>
         </tr>
 }
