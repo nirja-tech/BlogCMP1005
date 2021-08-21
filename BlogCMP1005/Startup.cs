@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
+using WebEssentials.AspNetCore.Pwa;
 
 namespace BlogCMP1005
 {
@@ -32,7 +34,20 @@ namespace BlogCMP1005
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
 
-           
+
+       
+            services.AddProgressiveWebApp();
+
+            services.AddProgressiveWebApp(new PwaOptions
+            {
+                CacheId = "Worker ",
+                Strategy = ServiceWorkerStrategy.CacheFirst,
+                RoutesToPreCache = "/Home/Contact, /Home/About",
+
+                OfflineRoute = "fallBack.html",
+            });
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

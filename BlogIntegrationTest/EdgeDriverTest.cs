@@ -13,12 +13,12 @@ namespace BlogIntegrationTest
     {
 
         private ChromeDriver _driver;
-        private string testUrl = "https://localhost:5001/";
+        private string testUrl = "https://localhost:44324/";
 
         [TestInitialize]
         public void EdgeDriverInitialize()
         {
-            new DriverManager().SetUpDriver(new ChromeConfig(),"Latest",WebDriverManager.Helpers.Architecture.Auto);
+            new DriverManager().SetUpDriver(new ChromeConfig());
             // Initialize edge driver 
             var options = new ChromeOptions
             {
@@ -91,6 +91,19 @@ namespace BlogIntegrationTest
             var click_details = _driver.FindElementById("details");
             click_details.Click();
         }
+
+        [TestMethod]
+        public void loginUrl()
+        {
+
+            _driver.Url = testUrl;
+            var click_details = _driver.FindElementById("Login");
+            click_details.Click();
+
+            //test User
+        }
+
+        //create Blog testCases
 
 
 
