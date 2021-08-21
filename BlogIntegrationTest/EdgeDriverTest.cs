@@ -111,12 +111,67 @@ namespace BlogIntegrationTest
             //to ensure  wether login operation is performed successfully or not by checking textbox appeared after clicking login.
             var user_name = _driver.FindElementById("Input_Email");
             Assert.AreEqual("username", user_name);
-          
-                
+
+            //to ensure  wether login operation is performed successfully or not by checking textbox appeared after clicking login.
+            var user_password = _driver.FindElementById("Input_Password");
+            Assert.AreEqual("userpassword", user_password);
+
+            var user_submit = _driver.FindElementById("login-submit");
+            user_submit.Click();
+
+
             //test User
         }
 
         //create Blog testCases
+
+          [TestMethod]
+          public void userName()
+        {
+            _driver.Url = testUrl;
+            var fullName = _driver.FindElementsById("name");
+            Assert.AreEqual("fullName", fullName);
+
+        }
+
+        [TestMethod]
+        public void Title()
+        {
+            _driver.Url = testUrl;
+            var Title = _driver.FindElementsById("testCBV");
+            Assert.AreEqual("Title", Title);
+
+        }
+
+        [TestMethod]
+        public void Content()
+        {
+            _driver.Url = testUrl;
+            var Content = _driver.FindElementsById("textInput");
+            Assert.AreEqual("Content", Content);
+
+        }
+
+
+        [TestMethod]
+        public void Image()
+        {
+            _driver.Url = testUrl;
+            var Image = _driver.FindElementsById("image");
+            Assert.AreEqual("Image", Image);
+
+        }
+
+        [TestMethod]
+        public void Date()
+        {
+            _driver.Url = testUrl;
+            var Date = _driver.FindElementsById("date");
+            Assert.AreEqual("Date", Date);
+
+        }
+
+        
 
 
 

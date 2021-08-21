@@ -15,14 +15,14 @@
         <form method="post" enctype="multipart/form-data" id="test" >
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Blog.UserName" class="control-label"></label>
-                <input asp-for="Blog.UserName" class="form-control" />
-                <span asp-validation-for="Blog.UserName" class="text-danger"></span>
+                <label asp-for="Blog.UserName" class="control-label" ></label>
+                <input asp-for="Blog.UserName" class="form-control" id="name" />
+                <span asp-validation-for="Blog.UserName" class="text-danger" ></span>
             </div>
             <div class="form-group">
-                <label asp-for="Blog.Title" class="control-label"></label>
+                <label asp-for="Blog.Title" class="control-label" ></label>
                 <input asp-for="Blog.Title" class="form-control" id="testCBV" />
-                <span asp-validation-for="Blog.Title" class="text-danger"></span>
+                <span asp-validation-for="Blog.Title" class="text-danger" ></span>
             </div>
             <div class="form-group">
                 <label asp-for="Blog.Content" class="control-label"></label>
@@ -35,12 +35,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Blog.Images" class="control-label"></label>
-                <input type="file" asp-for="Blog.Images" name="formFile" class="form-control" />
+                <input type="file" asp-for="Blog.Images" name="formFile" id="image" class="form-control" />
                 <span asp-validation-for="Blog.Images" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="Blog.Date" class="control-label"></label>
+                <label asp-for="Blog.Date" class="control-label" id="date"></label>
                 <input asp-for="Blog.Date" class="form-control" />
                 <span asp-validation-for="Blog.Date" class="text-danger"></span>
             </div>
