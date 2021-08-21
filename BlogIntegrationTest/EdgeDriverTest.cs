@@ -55,6 +55,9 @@ namespace BlogIntegrationTest
         }
 
 
+
+
+
         //Index page tesCases
 
 
@@ -104,8 +107,8 @@ namespace BlogIntegrationTest
         {
 
             _driver.Url = testUrl;
-            var click_details = _driver.FindElementByName("Login");
-            click_details.Click();
+            var click_Login = _driver.FindElementByName("Login");
+            click_Login.Click();
 
 
             //to ensure  wether login operation is performed successfully or not by checking textbox appeared after clicking login.
@@ -122,10 +125,37 @@ namespace BlogIntegrationTest
 
             //test User
         }
+        [TestMethod]
+        public void Registration()
+        {
+
+            _driver.Url = testUrl;
+            var click_Register = _driver.FindElementByName("Register");
+            click_Register.Click();
+
+
+            //to ensure  wether register operation is performed successfully or not by checking  user name textbox appeared after clicking Register.
+            var user_name = _driver.FindElementById("Input_Email");
+            Assert.AreEqual("username", user_name);
+
+            //to ensure  wether  Register operation is performed successfully or not by checking password textbox appeared after clicking Register.
+            var user_password = _driver.FindElementById("Input_Password");
+            Assert.AreEqual("userpassword", user_password);
+
+            //to ensure  wether  Register operation is performed successfully or not by checking Confirm password textbox appeared after clicking Register.
+            var Confirm_password = _driver.FindElementById("Input_ConfirmPassword");
+            Assert.AreEqual("Confirmpassword", Confirm_password);
+
+            var user_submit = _driver.FindElementById("login-submit");
+            user_submit.Click();
+
+
+            //test User
+        }
 
         //create Blog testCases
 
-          [TestMethod]
+        [TestMethod]
           public void userName()
         {
             _driver.Url = testUrl;
