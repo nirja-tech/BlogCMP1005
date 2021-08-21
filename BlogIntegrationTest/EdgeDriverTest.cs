@@ -6,6 +6,8 @@ using WebDriverManager.DriverConfigs.Impl;
 using OpenQA.Selenium.Edge;
 using System.Net.Http;
 
+
+
 namespace BlogIntegrationTest
 {
     [TestClass]
@@ -30,7 +32,7 @@ namespace BlogIntegrationTest
         [TestMethod]
         public void VerifyPageTitle()
         {
-           
+
             _driver.Url = "https://www.bing.com";
             Assert.AreEqual("Bing", _driver.Title);
         }
@@ -38,7 +40,7 @@ namespace BlogIntegrationTest
         [TestMethod]
         public void VerifyPageTitle2()
         {
-            
+
             _driver.Url = "https://www.google.com";
             Assert.AreEqual("Google", _driver.Title);
         }
@@ -52,9 +54,12 @@ namespace BlogIntegrationTest
             Assert.AreEqual("firefox", _driver.Title);
         }
 
-             
+
         //Index page tesCases
 
+
+        //checkLogin
+       
         //check Create Link 
         [TestMethod]
         public void checkCreateLink()
@@ -64,6 +69,8 @@ namespace BlogIntegrationTest
             var createLink = _driver.FindElementById("checkLink");
             createLink.Click();
         }
+
+
         //check Create Link 
         [TestMethod]
         public void checkDelete()
@@ -97,9 +104,15 @@ namespace BlogIntegrationTest
         {
 
             _driver.Url = testUrl;
-            var click_details = _driver.FindElementById("Login");
+            var click_details = _driver.FindElementByName("Login");
             click_details.Click();
 
+
+            //to ensure  wether login operation is performed successfully or not by checking textbox appeared after clicking login.
+            var user_name = _driver.FindElementById("Input_Email");
+            Assert.AreEqual("username", user_name);
+          
+                
             //test User
         }
 
