@@ -1,6 +1,6 @@
 {
   "name": "My Progressive Web App",
-  "short_name": "my PWA",
+  "short_name": "My PWA",
   "orientation": "portrait",
   "display": "standalone",
   "icons": [
@@ -15,7 +15,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/",
+  "start_url": "./",
   "color": "#ffffff",
   "background_color": "#20c4f4",
   "theme_color": "#20c4f4"

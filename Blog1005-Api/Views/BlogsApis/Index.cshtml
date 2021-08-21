@@ -1,40 +1,40 @@
-﻿@page
-@model BlogCMP1005.Pages.IndexModel
+﻿@model IEnumerable<Blog1005_Api.Model.BlogsApi>
 
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>Index</h1>
-<link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-<img src="~/content/static/blogimg.jpg" width="700"; height="300" />
 
 <p>
-    <a asp-page="Create" id= "checkLink">Create New</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Blog[0].UserName)
+                @Html.DisplayNameFor(model => model.UserName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Blog[0].Title)
+                @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Blog[0].Content)
+                @Html.DisplayNameFor(model => model.Content)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Blog[0].Images)
+                @Html.DisplayNameFor(model => model.Images)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Blog[0].Date)
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Likes)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Blog) {
+@foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.UserName)
@@ -52,14 +52,14 @@
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id" id="edit">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id" id="details">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id" id="delete">Delete</a>
+                @Html.DisplayFor(modelItem => item.Likes)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
-
 }
-
-        <
     </tbody>
 </table>

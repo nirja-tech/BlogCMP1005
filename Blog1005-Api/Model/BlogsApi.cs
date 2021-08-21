@@ -11,6 +11,7 @@ namespace Blog1005_Api.Model
     {
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         public String UserName { get; set; }

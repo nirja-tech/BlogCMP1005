@@ -35,7 +35,7 @@ namespace BlogCMP1005
             services.AddRazorPages();
 
 
-       
+
             services.AddProgressiveWebApp();
 
             services.AddProgressiveWebApp(new PwaOptions
@@ -43,8 +43,7 @@ namespace BlogCMP1005
                 CacheId = "Worker ",
                 Strategy = ServiceWorkerStrategy.CacheFirst,
                 RoutesToPreCache = "/Home/Contact, /Home/About",
-
-                OfflineRoute = "fallBack.html",
+               OfflineRoute = "fallBack.html",
             });
 
 
